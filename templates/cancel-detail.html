@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>讲座详情</title>
+    <link rel="stylesheet" href="{% static 'css/components/header.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/container.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/segment.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/item.min.css' %}">
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/semantic.min.js" %}'></script>
+</head>
+<body style="margin-top: 5%;">
+    <h1 class="ui header" style="text-align: center;">讲座详情</h1>
+    <div class="ui text container segment">
+        <h1 class="ui header" style="text-align: center;">{{ item.speech_name }}</h1>
+        <div class="ui divided items">
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        时间
+                    </div>
+                    <p>{{ item.speech_time }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        地点
+                    </div>
+                    <p>{{ item.speech_place }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        主讲人
+                    </div>
+                    <p>{{ item.speech_speaker_name }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        主讲人简介
+                    </div>
+                    <p>{{ item.speech_speaker_introduction }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        内容简介
+                    </div>
+                    <p>{{ item.speech_introduction }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        讲座地点容量
+                    </div>
+                    <p>{{ item.speech_capacity }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">
+                        讲座地点剩余座位
+                    </div>
+                    <p>{{ item.speech_chair_remain_number }}</p>
+                </div>
+            </div>
+            <div class="item" style="text-align: center;">
+                <div class="content">
+                    <div class="header">
+                        {% comment %} <a href="/booking?id={{ item.id }}">立即预订</a> {% endcomment %}
+                        <a href="/cancel-booking?id={{ item.id }}">取消预定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 5%">
+        <a href="/index/">返回首页</a>
+    </div>
+</body>
+</html>

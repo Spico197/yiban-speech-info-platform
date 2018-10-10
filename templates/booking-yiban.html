@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>讲座详情</title>
+    <link rel="stylesheet" href="{% static 'css/components/header.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/container.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/segment.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/item.min.css' %}">
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/semantic.min.js" %}'></script>
+</head>
+<body style="margin-top: 5%;">
+    <h1 class="ui header" style="text-align: center;">讲座详情</h1>
+    <div class="ui text container segment">
+        <h1 class="ui header" style="text-align: center;">{{ item.speech_name }}</h1>
+        <div class="ui divided items">
+            <div class="item">
+                <div class="content" style="margin: auto;">
+                    {{ ok }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 5%">
+        <a href="/index/">返回首页</a>
+    </div>
+</body>
+</html>

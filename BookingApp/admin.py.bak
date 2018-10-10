@@ -1,0 +1,7 @@
+from django.contrib import admin
+from BookingApp.models import Speech, Student, BookingOrder
+
+# Register your models here.
+admin.site.register(Speech)
+admin.site.register(Student)
+admin.site.register(BookingOrder)

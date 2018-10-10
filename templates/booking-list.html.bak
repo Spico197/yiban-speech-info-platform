@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ all_title }}</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.css' %}">
+    <script src='{% static "js/jquery.min.js" %}'></script>
+    <script src='{% static "js/semantic.js" %}'></script>
+</head>
+<body style="margin: 20px;">
+<a href="{{ link }}">{{ user }}</a> | <a href="/index/">返回首页</a>
+{% comment %} |<a href="/stu-register/">注册</a> {% endcomment %}
+
+<h1 class="ui header" style="text-align: center;">{{ all_title }}</h1>
+{% for item in ArticleInfo %}
+    <div class="ui text container segment">
+        <div class="ui divided items">
+                <div class="item">
+                    <div class="content">
+                        <div class="header">
+                            {{ item.speech_name }}
+                        </div>
+                        <div class="description">
+                            <p>
+                                {{ item.speech_speaker_name }}&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ item.speech_time }}&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ item.speech_place }}
+                            </p>
+                            <p><a href="/cancel-booking?id={{ item.id }}">取消预定</a></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endfor %}
+<div style="text-align: center;">
+    <div class="ui pagination menu">
+        {% if ArticleInfo.has_previous %}
+            <a class="item" href="?page={{ ArticleInfo.previous_page_number }}"> < </a>
+        {% endif %}
+        <div class="disable item">
+            page {{ ArticleInfo.number }} of {{ ArticleInfo.paginator.num_pages }}
+        </div>
+        {% if ArticleInfo.has_next %}
+            <a class="item" href="?page={{ ArticleInfo.next_page_number }}"> > </a>
+        {% endif %}
+    </div>
+</div>
+
+
+</body>
+</html>
